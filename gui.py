@@ -28,16 +28,19 @@ class App(tk.TK):
         
         self.x = self.y = 0
         
-    # Creating the elements
-    self.canvas = tk.Canvas(self, width = 300, height = 300, bg = 'white', cursor = 'cross')
-    self.label = tk.Label(self, text = 'Processing...', font=('Comic Sans', 48))
-    self.classify_btn = tk.Button(self, text = "Recognise", command = self.classify_handwriting) 
-    self.button_clear = tk.Button(self, text = "Clear", command = self.clear_all)
-    
-    # Grid structure
-    self.canvas.grid(row=0, column=0, pady=2, sticky=W)
-    self.label.grid(row=0, column=1,pady=2, padx=2)
-    self.classify_btn.grid(row=1, column=1, pady=2, padx=2)
-    self.button_clear.grid(row=1, column=0, pady=2)
+        # Creating the elements
+        self.canvas = tk.Canvas(self, width = 300, height = 300, bg = 'white', cursor = 'cross')
+        self.label = tk.Label(self, text = 'Processing...', font=('Comic Sans', 48))
+        self.classify_btn = tk.Button(self, text = "Recognise", command = self.classify_handwriting) 
+        self.button_clear = tk.Button(self, text = "Clear", command = self.clear_all)
+        
+        # Grid structure
+        self.canvas.grid(row=0, column=0, pady=2, sticky=W)
+        self.label.grid(row=0, column=1,pady=2, padx=2)
+        self.classify_btn.grid(row=1, column=1, pady=2, padx=2)
+        self.button_clear.grid(row=1, column=0, pady=2)
+        
+        #self.canvas.bind("<Motion>", self.start_pos)
+        self.canvas.bind("<B1-Motion>", self.draw_lines)
     
     
