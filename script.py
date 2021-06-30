@@ -52,6 +52,3 @@ print("Successfully trained model with no errors")
 # Evaluation of the model
 model.save('mnist.h5')
 print("Model being saved as mnist.h5")
-
-
-

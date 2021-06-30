@@ -43,4 +43,24 @@ class App(tk.TK):
         #self.canvas.bind("<Motion>", self.start_pos)
         self.canvas.bind("<B1-Motion>", self.draw_lines)
     
+    def clear_all(self):
+        self.canvas.delete('all')
     
+    def classify_handwriting(self):
+        # get the canvas handle
+        HWND = self.canvas.winfo_id() 
+        # get the coordinate of the canvas
+        rect = win32gui.GetWidowRect(HWND)
+        im = ImageGrab.grab(rect)
+        
+        digit, acc = predict_digit(im)
+        self.label.configure(text= str(digit)+', '+ str(int(acc*100))+'%')
+        
+    def draw_lines(self, event):
+        self.x = event.x 
+        self.y = event.y
+        r = 8
+        self.canvas.create_oval(self.x-r, self.y-r, self.x + r, self.y + r, fill='black')
+
+app = App()
+mainloop()
