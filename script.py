@@ -4,6 +4,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 from keras import backend as K
+from keras.utils.generic_utils import validate_config
 
 # Data split between train and test sets
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
@@ -31,7 +32,8 @@ batch_size = 128
 num_classes = 10
 epochs = 10
 
-model.Sequential()
+
+model = Sequential()
 model.add(Conv2D(32, kernal_size=(3, 3), activation='relu'))
 model.add(Conv2D(64, (3, 3), activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
@@ -42,4 +44,14 @@ model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation='softmax'))
 
 model.compile(loss=keras.losses.categorical_crossentropy, optimizer=keras.optimizers.Adadelta(), metrics=['accuracy'])
+
+# Training the model
+hist = model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, verbose=1, validate_data=(x_test, y_test))
+print("Successfully trained model with no errors")
+
+# Evaluation of the model
+model.save('mnist.h5')
+print("Model being saved as mnist.h5")
+
+
 
