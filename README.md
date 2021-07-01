@@ -5,4 +5,4 @@ built the GUI where we draw a digit on the canvas then we classify the digit and
 
 The GUI works on Windows or ReactOS
 
-TO see examples of the GUI in action, see the folder titled "working_screenshots"
+To see examples of the GUI in action, see the folder titled "working_screenshots"
