@@ -1,7 +1,7 @@
 # handwritten_digit_recognition
 Deep learning digit recognition system to recognize human handwritten digits;
 Built and trained the Convolutional neural network for image classification purposes and
-built the GUI where we draw a digit on the canvas then we classify the digit and show the results.
+built the GUI where we draw a digit on the canvas to classify the digit and show the results.
 
 The GUI works on Windows only
 
